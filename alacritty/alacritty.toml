@@ -1,0 +1,16 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding.x = 16
+padding.y = 16
+
+[general]
+import = ["~/.config/alacritty/themes/themes/gruber_darker.toml"]
+
+[font]
+normal = { family = "JetBrains Mono", style = "Regular" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Italic" }
+bold_italic = { family = "JetBrains Mono", style = "Bold Italic" }
+size = 28.0

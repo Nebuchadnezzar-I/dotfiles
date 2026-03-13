@@ -16,6 +16,7 @@ return {
                     "dist/",
                     "static/icons",
                     "static/fonts",
+                    "_templ.go"
                 },
             },
         })

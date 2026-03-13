@@ -1,17 +1,32 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
     config = function()
-        local ok, configs = pcall(require, "nvim-treesitter.configs")
-        if not ok then
-            return
-        end
+        local ts = require("nvim-treesitter")
 
-        configs.setup({
-            highlight = { enable = true },
-            indent = { enable = true },
-            ensure_installed = { "lua", "vim", "vimdoc", "rust" },
-            auto_install = true,
+        ts.setup({
+            install_dir = vim.fn.stdpath("data") .. "/site",
+        })
+
+        require("nvim-treesitter.parsers").templ = {
+            install_info = {
+                url = "https://github.com/vrischmann/tree-sitter-templ",
+                branch = "main",
+                queries = "queries/templ",
+            },
+        }
+
+        ts.install({
+            "templ", "go", "html", "c"
+        }):wait(300000)
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "templ",
+            callback = function()
+                vim.treesitter.start()
+            end,
         })
     end,
 }

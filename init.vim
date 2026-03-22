@@ -1,6 +1,8 @@
 let g:netrw_banner = 0
 let mapleader = " "
 
+syntax on
+filetype on
 set path+=**
 
 " Highlighting
@@ -38,4 +40,5 @@ set undodir=~/.vim/undodir
 set nohlsearch
 set incsearch
 
+set scrolloff=8
 set colorcolumn=80
